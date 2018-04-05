@@ -167,14 +167,6 @@ $straight-green-gradient:linear-gradient(140deg,#256323,#5dcc7e);
     }
     }
 }
-.bg-intro{
-    background:url(./assets/bg-banner.jpg);
-    @include background-setup();
-}
-.bg-login{
-    background:url(./assets/login-bg-banner.jpg);
-    @include background-setup();
-}
 .bg-setup{
     @include background-setup();
 }
@@ -445,6 +437,15 @@ input[type="file"] {
         }
     }
 }
+/*Footer*/
+.app-footer{
+    header{
+        color:#aaa;
+        padding:20px;
+        margin:auto;
+        text-align: center;
+    }
+}
 /*
 -----MEDIA OPTIMIZATION-------
 */
@@ -455,5 +456,13 @@ input[type="file"] {
     }
     .about{
         padding:0!important;
+    }
+    .auth-bg, .settings-bg{
+        transform:matrix(1,-.1,0,1,0,-100px);
+        height:400px;
+    }
+    .intro-outer{
+        transform:matrix(1,.1,0,1,0,-100px);
+        height:450px;
     }
 }
