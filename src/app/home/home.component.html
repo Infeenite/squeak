@@ -1,0 +1,28 @@
+<section class="home-banner">
+    <header>Hello, {{user?.name}}</header>
+</section>
+<mat-toolbar  class="animated fadeInDown">
+    <mat-form-field color="accent">
+            <input matInput placeholder="Group ID">
+    </mat-form-field>
+
+    <button mat-button>Add Group</button>
+</mat-toolbar>
+<header class="home-main-header">
+    Your Groups
+</header>
+<section class="groups-content">
+    <div class="container-fluid">
+
+            <div class="col-md-3" *ngFor="let group of groups">
+                <div class="group-card" [style.backgroundImage]="'url('+group?.background+')'">
+                    <div class="group-card-inner">
+                        <header>{{group?.name}}</header>
+                        <button mat-raised-button color="accent">Enter</button>
+                    </div>
+                </div>
+            </div>
+
+    </div>
+
+</section>

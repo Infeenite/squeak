@@ -1,0 +1,459 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import url('https://fonts.googleapis.com/css?family=PT+Sans');
+
+$white:#fff;
+$shaded:0 2px 2px rgba(10,16,20,.24),0 0 2px rgba(10,16,20,.12);
+$bluish:#42A5F5;
+$blackish:#333;
+$gradient:linear-gradient(145deg,#0d47a1,#42a5f5);
+$linear-gradient:linear-gradient(90deg,#0d47a1,#42a5f5);
+$straight-red-gradient:linear-gradient(90deg,#a10d0d,#fc6969);
+$straight-green-gradient:linear-gradient(140deg,#256323,#5dcc7e);
+
+
+*{
+    font-family: 'PT Sans', sans-serif;
+}
+.sidenav-button{
+    margin:20px!important;
+    position:fixed!important;
+    z-index: 99!important;
+    background:$white!important;
+}
+.dummy{
+    height:0!important;
+    position: absolute!important;
+}
+/*Sidenav*/
+.sidenav-container{
+
+    height: 100vh;
+    
+    .app-sidenav{
+
+        width:350px;
+        height: 100vh;
+        background:$white;
+        position:fixed!important;
+
+        .app-sidenav-header
+        {
+            background:#f00;
+            color:#fff;
+            margin:auto;
+            width:100%;
+            height:50px;
+            font-size:22px;
+            text-align:center;
+            cursor: pointer;
+
+            mat-icon{
+                transform:scale(2);
+                margin-top:10px;
+            }
+        }
+        .sidenav-link{
+            width:100%;
+            height:50px;
+            margin:auto;
+            font-size:24px;
+            padding:0 auto 5px 5px!important;
+            text-align:left;
+            mat-icon{
+                transform:scale(1.2);
+                margin-top:-5px;
+            }
+        }
+        .sidenav-link-active{
+            color:#42a5f5;
+        }
+        .nav-toolbar{
+            background:transparent!important;
+        }
+
+        .nav-toolbar mat-toolbar-row{
+            padding:0!important;
+        }
+
+        .nav-menu-header{
+            width:100%;
+            height:50px;
+            font-size:30px;
+            margin:auto;
+            padding:10px;
+            text-align:center;
+        }
+
+        .sidenav-close-button{
+            margin:20px!important;
+
+        }
+
+        .router-link{
+            width:100%;
+            height:100%;
+            font-size:30px;
+            padding:10px;
+            background:$linear-gradient!important;
+            color:$white!important;
+        }
+
+        .router-link-active{
+            background:$straight-red-gradient!important;
+        }
+        .router-link:hover, .router-link:focus{
+            text-decoration: none;
+            color:$bluish;
+        }
+        .endpoint{
+            width:100%;
+            padding:0 auto 5px 5px!important;
+            font-size:24px;
+            color:#333;
+            background:$white!important;
+        }
+    }
+}
+.delayed{
+    animation-delay: .5s;
+}
+/*Background*/
+@mixin background-setup{
+    width:100%;
+    height:500px;
+    background-size: cover;
+    background-position: center;
+
+    box-shadow: $shaded;
+}
+.bg-banner{
+    width:100%;
+    height:500px;
+    background-size: cover;
+    background-position: bottom;
+
+    box-shadow: $shaded;
+    .bg-banner-dimmer{
+        width:100%;
+        height:100%;
+        background:rgba(0,0,0,.5);
+        display:table;
+    .bg-img{
+        display:table-cell;
+        vertical-align: middle;
+        margin:auto;
+        text-align: center;
+        color:$white;
+        .bg-header{
+            font-size:50px;
+        }   
+        .bg-subheader{
+            font-size:36px;
+        }
+        .bg-interactions{
+            padding-top:30px;
+       
+        }
+        .bg-avatar{
+            width:140px;
+            height:140px;
+            background:#fff;
+            margin:auto;
+            border-radius:100%;
+            box-shadow: $shaded;
+            overflow: hidden;
+        } 
+        
+    }
+    }
+}
+.bg-intro{
+    background:url(./assets/bg-banner.jpg);
+    @include background-setup();
+}
+.bg-login{
+    background:url(./assets/login-bg-banner.jpg);
+    @include background-setup();
+}
+.bg-setup{
+    @include background-setup();
+}
+/*Intro*/
+.intro-outer{
+    background:$gradient;
+    box-shadow: $shaded;
+    height:600px;
+    width:100%;
+    transform:matrix(1,.1,0,1,0,-200);
+  
+}
+.intro-about-card{
+    background:#fff;
+    box-shadow: $shaded;
+    padding:15px;
+}
+.authenticate-card{
+    margin:auto;
+    margin-top:100px!important;
+
+    button{
+        display: block!important;
+        margin:20px auto;
+        transform:scale(1.5);
+
+    }
+    
+}
+.gradient-text{
+    color:#42a5f5;
+    font-weight: 700;
+}
+.title{
+    margin:auto;
+    margin-top:-400px;
+    text-align: center;
+    transform:matrix(1,0,0,1,0,0);
+    color:#fff;
+        .page-title{
+            font-size:50px;
+        }
+        .page-subtitle{
+            font-size:35px;
+        }
+}
+.images-section{
+    margin-top:25px;
+
+}
+/*Content*/
+.body-content{
+    margin-top:50px;
+
+    .top-coders{
+        border-right: solid #333 1px;
+    }
+   
+   .subpage-header{
+       color:#333;
+       font-size:50px;
+       text-align: center;
+       text-transform: uppercase;
+   }
+   .login-button, .register-button{
+       display:block!important;
+       margin:20px auto!important;
+        width:300px;
+        height:100px;
+        border:none;
+        border-radius: 10px;
+        font-size:30px;
+        margin:20px;
+   }
+   .login-button{
+    background: #dadada;
+   }
+   .register-button{
+       background-color:$bluish;
+       color:$white;
+   }
+}
+.about{
+    padding:20px;
+
+    header{
+        font-size:45px;
+        color:#333;
+        margin:auto;
+        text-align: center;
+    }
+    article{
+        font-size:24px;
+        color:#333;
+        margin:auto;
+        text-align: left;
+    }
+    .btn{
+        width:250px;
+        height:auto;
+        font-size:30px;
+        margin:auto!important;
+        display: block!important;
+    }
+
+    .image-circle{
+        background-image: url(./assets/about-image.jpg);
+        background-size:cover;
+        width:95%;
+        height:350px;
+        border-radius: 10px;
+        box-shadow: $shaded;
+        margin:auto;
+    }
+}
+/*Login*/
+.form-card{
+    box-shadow: $shaded;
+    padding:20px;
+    margin:auto;
+    margin-top:-300px;
+    background:#fff;
+    width:350px;
+    transform:matrix(1,0,0,1,0,0);
+}
+.auth-bg{
+    background:$straight-red-gradient;
+    transform:matrix(1,-.1,0,1,0,-200);
+    height:600px;
+    width:100%;
+    box-shadow: $shaded;
+}
+.errormsg{
+    color:#f00;
+}
+.spinner{
+   margin:20px;
+}
+/*Profile*/
+.loading{
+    mat-progress-spinner{
+        margin: 20px auto;
+    }
+    header{
+        margin: 20px auto;
+        text-align:center;
+        font-size:30px;
+        color:#aaa;
+    }
+}
+.profile-header{
+    color:#333;
+    font-size:40px;
+    margin:10px;
+}
+.about-me{
+    margin:10px;
+    font-size:24px;
+    color:#333;
+}
+.information{
+    border-right: 1px dashed #333;
+
+    .information-article{
+        font-size:24px;
+        color:#333;
+    }
+}
+.portfolio{
+    li{
+        list-style-type: square;
+    }
+    font-size:26px;
+    color:#333;
+}
+.social-section{
+    padding:15px;
+    margin:10px auto;
+    border-radius:10px;
+
+    span{
+        color:$white;
+        font-size:30px;
+    }
+}
+.social-icon{
+    margin:auto 15px;
+    color:#fff;
+}
+
+/*Settings*/
+.settings-header{
+    color:#333;
+    font-size:30px;
+}
+.settings-card{
+    box-shadow: $shaded;
+    padding:20px;
+    margin:auto;
+    margin-top:-300px;
+    background:#fff;
+    transform:matrix(1,0,0,1,0,0);
+}
+.settings-bg{
+    background:$straight-green-gradient;
+    transform:matrix(1,.1,0,1,0,-200);
+    height:600px;
+    width:100%;
+    box-shadow: $shaded;
+}
+input[type="file"] {
+    display: none!important;
+}
+.custom-file-upload {
+    border: 1px solid #ccc;
+    font-size:24px;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+
+    mat-icon{
+        transform: scale(1.2);
+    }
+}
+/*Home*/
+.home-banner{
+    background:$gradient;
+    height:100px;
+    box-shadow:$shaded;
+    width:100%;
+    display:table;
+    header{
+        display:table-cell;
+        vertical-align: middle;
+        text-align: center;
+        font-size:30px;
+        color:$white;
+    }
+}
+.home-main-header{
+    font-size:30px;
+    color:#333;
+    text-align: center;
+    margin:auto;
+}
+.group-card{
+    width:100%;
+    height:300px;
+    display:table;
+    background-size:cover;
+    box-shadow:$shaded;
+
+    .group-card-inner{
+        background:rgba(0,0,0,.6);
+        display: table-cell;
+        vertical-align: middle;
+        margin:auto;
+        width:200px;
+        height:200px;
+        button{
+            display:block!important;
+            margin:auto;
+        }
+        header{
+            font-size:30px;
+            color:$white;
+            text-align: center;
+        }
+    }
+}
+/*
+-----MEDIA OPTIMIZATION-------
+*/
+@media(max-width:736px)
+{
+    .app-sidenav{
+        width:100%!important;
+    }
+    .about{
+        padding:0!important;
+    }
+}

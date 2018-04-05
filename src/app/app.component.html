@@ -1,0 +1,71 @@
+<mat-sidenav-container  class="sidenav-container">
+  <mat-sidenav #nav mode="over" class="app-sidenav" >
+    <div class="app-sidenav-header" (click)="nav.close()">
+        <mat-icon>close</mat-icon>
+    </div>
+    
+    <button mat-button *ngIf="!user" routerLink="../welcome" routerLinkActive="sidenav-link-active" class="sidenav-link">
+        <mat-icon>home</mat-icon> Welcome
+    </button>
+
+    <button mat-button *ngIf="user" routerLink="../home" routerLinkActive="sidenav-link-active" class="sidenav-link">
+        <mat-icon>home</mat-icon> Home
+    </button>
+
+    <button mat-button *ngIf="user" routerLink="../profile/{{user.uid}}" routerLinkActive="sidenav-link-active" class="sidenav-link">
+        <mat-icon>account_circle</mat-icon> Profile
+    </button>
+
+    <button mat-button *ngIf="!user" routerLink="../login" routerLinkActive="sidenav-link-active" class="sidenav-link">
+        <mat-icon>lock_open</mat-icon>  Log In
+    </button>
+
+    <button mat-button routerLink="../settings" *ngIf="user" routerLinkActive="sidenav-link-active"  class="sidenav-link">
+        <mat-icon>settings</mat-icon>  Settings
+    </button>
+
+    <button mat-button (click)="logOut()"  *ngIf="user"   class="sidenav-link">
+        <mat-icon>exit_to_app</mat-icon> Log Out
+    </button>
+  </mat-sidenav>
+  <button 
+  mat-fab 
+  color="primary"
+  class="sidenav-button"
+  (click) = "nav.toggle()"
+>
+<mat-icon>menu</mat-icon>
+</button>
+<div [@routerAnimation]="getRouteAnimation(route)">
+    <router-outlet #route="outlet" (activate)="nav.close()"></router-outlet>
+</div>
+
+</mat-sidenav-container>
+
+
+
+
+
+    <!-- <mat-toolbar class="option-bar" color="primary" class="nav-toolbar">
+      <mat-toolbar-row >      
+          <button mat-button class="dummy"></button>
+        <button mat-raised-button color="warn" class="close-button" (click)="nav.close()"><mat-icon>close</mat-icon></button>
+      </mat-toolbar-row>
+      <mat-toolbar-row>
+          <button mat-button class="router-link" routerLink="../welcome" routerLinkActive="router-link-active">Home</button>
+      </mat-toolbar-row>
+
+      <mat-toolbar-row  *ngIf="!user">
+        <a mat-button class="router-link" routerLinkActive="router-link-active" routerLink="../login" >Login</a>
+    </mat-toolbar-row>
+    <mat-toolbar-row *ngIf="user" >
+      <a routerLink="../profile/{{user.uid}}" mat-button class="router-link" routerLinkActive="router-link-active" >Profile</a>
+  </mat-toolbar-row>
+  <mat-toolbar-row *ngIf="user" >
+    <a routerLink="../settings" mat-button class="router-link" routerLinkActive="router-link-active" >Settings</a>
+</mat-toolbar-row>
+<mat-toolbar-row *ngIf="user" >
+    <a (click)="logOut()" mat-button class="router-link" routerLinkActive="router-link-active" >Log Out</a>
+</mat-toolbar-row>
+
+    </mat-toolbar> -->

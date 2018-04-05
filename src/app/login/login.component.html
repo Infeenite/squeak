@@ -1,0 +1,101 @@
+<section class="authenticate-bg">
+  <div class="auth-bg"></div>
+</section>
+<section class="authenticate">
+  <div class="form-card">
+      <h3>Hello!</h3>
+      
+      <!--Authentication form-->
+      <mat-form-field color="accent">
+        <mat-select [(ngModel)]="authForm" placeholder="I want to..." (change)="detectChange(authForm)">
+          <mat-option default value="1">
+            Log In
+          </mat-option>
+          <mat-option value="2">
+            Create Account
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <!--If user selected authentication form-->
+      <div *ngIf="authForm==1||authForm==2">
+
+        <!--Email-->
+        <mat-form-field color="accent" >
+          <input  type="email" matInput placeholder="E-Mail Adress" [(ngModel)]="email">
+        </mat-form-field>
+
+        <!--Password-->
+        <mat-form-field color="accent" >
+          <input matInput type="password"  placeholder="Password" [(ngModel)]="password">
+        </mat-form-field>
+
+      <!--If user wants to create account-->
+      <div *ngIf="authForm==2">
+
+        <!--Password confirmation-->
+        <mat-form-field color="accent" >
+          <input matInput type="password"  placeholder="Confirm Password" [(ngModel)]="passwordConfirm">
+        </mat-form-field>
+
+        <!--Birth Date-->
+        <mat-form-field color="accent">
+          <input type="date" matInput placeholder="Birth Date" [(ngModel)]="birthDate">
+        </mat-form-field>
+        
+        <!--Display Name-->
+        <mat-form-field color="accent">
+          <input matInput  placeholder="Display Name" [(ngModel)]="displayName">
+        </mat-form-field>
+
+        <!--Profession-->
+        <mat-form-field color="accent">
+          <mat-select placeholder="Who are you?" [(ngModel)]="profession" >
+            <mat-option  value="Programmer">
+              Programmer
+            </mat-option>
+            <mat-option value="Sportsman">
+              Sportsman
+            </mat-option>
+            <mat-option value="Painter">
+              Painter
+            </mat-option>
+            <mat-option value="Musician">
+              Musician
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <!--Subprofession-->
+        <mat-form-field color="accent">
+          <input matInput  placeholder="Precise your profession" [(ngModel)]="subProfession">
+        </mat-form-field>
+
+        <!--Occupation-->
+        <mat-form-field color="accent">
+          <mat-select placeholder="Who are you?" [(ngModel)]="occupation" >
+            <mat-option value="Student">
+              Student
+            </mat-option>
+            <mat-option value="Graduate">
+              Graduate
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>            
+      <br>
+      <!--Display errors-->
+      <p class="errormsg" *ngIf="errorMsg">{{errorMsg}}</p>
+      
+      <!--Register-->
+      <button mat-button color="accent"[disabled]="password!=passwordConfirm || !occupation || !profession || !birthDate || !displayName || !subProfession" *ngIf="authForm==2" (click)="register(email, password, displayName, profession, subProfession, birthDate, occupation)" >Register</button>
+      
+      <!--Log In-->
+      <button mat-button color="accent" [disabled]="!email||!password" *ngIf="authForm==1" (click)="login(email, password)" >Login</button>
+                
+      <div *ngIf="isLoading">
+        <mat-progress-spinner class="spinner" mode="indeterminate" color="accent"></mat-progress-spinner>
+      </div>
+    </div>
+  </div>
+</section>

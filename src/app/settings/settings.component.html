@@ -1,0 +1,33 @@
+<section class="background">
+        <div class="settings-bg"></div>
+</section>
+<section class="settings container">
+        <div class="settings-card">
+                <h3><mat-icon>settings</mat-icon> Configure your account</h3>
+                <div class="row">
+                        <div class="col-md-6">
+
+                                <!--About Me-->
+                                <mat-form-field color="accent">
+                                        <textarea matInput [(ngModel)]="aboutMe" [value]="profileProps?.about" placeholder="About me"></textarea>
+                                </mat-form-field>
+                                <button color="accent" mat-button [disabled]="!aboutMe" (click)="updateAboutMe(aboutMe)">Update</button>
+                                <br>
+                                
+                                <!-- Contact Phone-->
+                                <mat-form-field color="accent">
+                                        <input matInput [(ngModel)]="phone" [value]="profileProps?.phone" placeholder="Contact Phone">
+                                </mat-form-field>
+                                <button color="accent" mat-button [disabled]="!phone" (click)="updatePhoneNumber(phone)">Update</button>
+                                <br>
+                                                
+                                <!--Avatar-->
+                                <label class="custom-file-upload">
+                                        <input type="file" (change)="detectFiles($event)">
+                                        <mat-icon>camera</mat-icon> Change Avatar
+                                </label>
+                                <button color="accent" mat-button [disabled]="!selectedFiles" (click)="uploadSingle()">Confirm</button>
+                        </div>
+                </div>
+        </div>
+</section>
