@@ -16,10 +16,12 @@ import { FormsModule } from '@angular/forms';
 import { SettingsComponent } from './settings/settings.component';
 import { UploadService } from './upload.service';
 import { AuthGuard } from './auth-service.service';
+import { GroupComponent } from './group/group.component';
 
 
 export const routes =[
   {path:'profile/:id', component: ProfileComponent, data: { animation: 'profile' }},
+  {path:'group/:id', component:GroupComponent, data:{animation:'group'}},
   {path:'home', component:HomeComponent,canActivate:[AuthGuard],  data: { animation: 'home' }},
   {path:'welcome', component:IntroComponent, data: { animation: 'welcome' }},
   {path:'settings', component:SettingsComponent, canActivate:[AuthGuard], data: { animation: 'settings' }},
@@ -44,6 +46,7 @@ export const firebaseConfig = {
     LoginComponent,
     ProfileComponent,
     SettingsComponent,
+    GroupComponent,
   ],
   imports: [
     BrowserModule,

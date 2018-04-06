@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase } from 'angularfire2/database';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +10,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private auth:AngularFireAuth, private db:AngularFireDatabase) { }
+  constructor(private auth:AngularFireAuth, private db:AngularFireDatabase, private router:Router) { }
 
   profile;
   user;
@@ -30,6 +31,11 @@ export class HomeComponent implements OnInit {
       this.groups = data;
     })
   })
+  }
+
+  goToGroup(key)
+  {
+    this.router.navigate(['group/'+key]);
   }
 
 }

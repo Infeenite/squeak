@@ -1,0 +1,33 @@
+<section class="home-banner">
+  <header>{{group?.name}}</header>
+</section>
+<section class="loading" *ngIf="isLoading">
+  <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+  <header>Loading group...</header>
+</section>
+
+
+<section *ngIf="!isLoading" class="background animated fadeIn">
+  <div class="bg-banner bg-setup"  [style.backgroundImage]="'url('+group?.background+')'" >
+       <div class="bg-banner-dimmer">
+           <div class="bg-img">
+               
+               <header class="bg-header">{{group?.members.length-1}}</header>
+               <header class="bg-subheader">Members</header>
+           </div>
+       </div>      
+   </div>
+</section>
+
+<section *ngIf="!isLoading" class="group-content">
+  <mat-tab-group color="accent">
+    <mat-tab label="Newsfeed">
+        Newsfeed
+    </mat-tab>
+    <mat-tab label="info">
+      Info
+    </mat-tab>
+
+  </mat-tab-group>
+
+</section>

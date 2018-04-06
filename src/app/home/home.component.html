@@ -1,7 +1,7 @@
 <section class="home-banner">
     <header>Hello, {{user?.name}}</header>
 </section>
-<mat-toolbar  class="animated fadeInDown">
+<mat-toolbar>
     <mat-form-field color="accent">
             <input matInput placeholder="Group ID">
     </mat-form-field>
@@ -18,11 +18,13 @@
                 <div class="group-card" [style.backgroundImage]="'url('+group?.background+')'">
                     <div class="group-card-inner">
                         <header>{{group?.name}}</header>
-                        <button mat-raised-button color="accent">Enter</button>
+                        <button mat-raised-button color="accent" (click)="goToGroup(group?.$key)">Enter</button>
                     </div>
                 </div>
             </div>
 
     </div>
 
+
+    
 </section>
