@@ -437,6 +437,49 @@ input[type="file"] {
         }
     }
 }
+/*Group*/
+.group-header{
+    color:#42A5F5;
+    padding:10px;
+    font-size:30px;
+}
+.newsfeed-content{
+    margin:25px;
+}
+.group-post{
+    box-shadow: $shaded;
+    padding:20px;
+
+    .post-author{
+
+        .post-author-avatar{
+            width:70px;
+            height:70px;
+            border-radius: 100%;
+            background-size:cover;
+            background-position: center;
+            display: inline-block;
+        }
+        .post-author-name{
+            font-size:30px;
+            color:#333;
+            height:100%;
+            font-weight: 700;
+            padding-bottom:50px!important;
+        }
+        .post-added-on{
+            float: right;
+            color:#666;
+
+        }
+       
+    }
+    .post-body{
+        padding:20px;
+        font-size:26px;
+        color:#333;
+    }
+}
 /*Footer*/
 .app-footer{
     header{

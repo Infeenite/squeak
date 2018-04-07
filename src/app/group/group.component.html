@@ -22,9 +22,33 @@
 <section *ngIf="!isLoading" class="group-content">
   <mat-tab-group color="accent">
     <mat-tab label="Newsfeed">
-        Newsfeed
+      <div class="newsfeed-content col-md-6">
+          <header class="group-header">
+              Newsfeed
+            </header>
+            
+            <div *ngFor="let item of posts" class="group-post">
+              <div class="post-author">
+                <div class="post-author-avatar" [style.backgroundImage]="'url('+item.authorImgUrl+')'">
+                  
+                </div>
+                <span (click)="navigate(item.authorUid)" class="post-author-name">
+                  {{item.author}}
+                </span>
+                <div class="post-added-on">
+                    Added on {{item.date}}
+                  </div>
+              </div>
+              <mat-divider></mat-divider>
+              <p class="post-body">
+                {{item.body}}
+              </p>
+      
+            </div>
+      </div>
+       
     </mat-tab>
-    <mat-tab label="info">
+    <mat-tab label="Info">
       Info
     </mat-tab>
 

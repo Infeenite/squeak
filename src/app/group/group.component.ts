@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase } from 'angularfire2/database';
 
@@ -10,12 +10,13 @@ import { AngularFireDatabase } from 'angularfire2/database';
 })
 export class GroupComponent implements OnInit {
 
-  constructor(private route:ActivatedRoute, private auth:AngularFireAuth, private db:AngularFireDatabase) { }
+  constructor(private route:ActivatedRoute, private auth:AngularFireAuth, private db:AngularFireDatabase, private router:Router) { }
   routeParam;
   lockdown;
   group;
   membersCount;
   isLoading;
+  posts;
 
   ngOnInit() {
     this.isLoading=true;
@@ -33,6 +34,9 @@ export class GroupComponent implements OnInit {
             this.group=group;
             this.membersCount = this.group.members.length - 1;
             this.isLoading=false;
+              this.db.list('groups/'+this.routeParam+'/posts').subscribe(posts=>{
+                this.posts=posts;
+              })
           }
         })
       })
@@ -41,5 +45,9 @@ export class GroupComponent implements OnInit {
 
   });
 }
+  navigate(uid)
+  {
+    this.router.navigate(['profile/'+uid]);
+  }
 
 }
