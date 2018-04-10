@@ -14,6 +14,11 @@ $straight-green-gradient:linear-gradient(140deg,#256323,#5dcc7e);
 *{
     font-family: 'PT Sans', sans-serif;
 }
+.mat-drawer-content { 
+    margin-right: -17px !important;
+ overflow-y: scroll;
+ overflow-x: hidden;
+}
 .sidenav-button{
     margin:20px!important;
     position:fixed!important;
